@@ -25,8 +25,8 @@ async def send_reminders(channel):
         # Pick a random reminder
         reminder = random.choice(reminders)
         await channel.send(reminder)
-        # Wait for a specified time before sending the next reminder (e.g., 1 hour)
-        await asyncio.sleep(3600)  # Sleep for 3600 seconds (1 hour)
+        # Wait for a specified time before sending the next reminder 
+        await asyncio.sleep(3600)  # Sleep for 1 hour
 
 # Event that runs when the bot is ready
 @client.event
@@ -34,7 +34,7 @@ async def on_ready():
     print(f'Bot {client.user} is connected and ready to send reminders!')
     
     # Specify the channel to send reminders to by name
-    channel = discord.utils.get(client.get_all_channels(), name='general')  # Change 'general' to your channel name
+    channel = discord.utils.get(client.get_all_channels(), name='general')
     if channel:
         await send_reminders(channel)
 
